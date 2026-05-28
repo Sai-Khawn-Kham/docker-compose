@@ -1,0 +1,8 @@
+services:
+  php:
+    build: ./web
+    container_name: php-web
+    volumes:
+      - ./web:/var/www/html
+    ports:
+      - "9000:9000"
