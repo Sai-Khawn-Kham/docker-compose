@@ -1,0 +1,6 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: react-frontend
+    ports:
+      - "5173:80"
