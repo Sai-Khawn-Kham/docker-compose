@@ -1,0 +1,16 @@
+# Ignore version control systems
+.git
+.gitignore
+
+# Ignore local environment secrets
+.env
+.env.local
+
+# Ignore markdown documentation and logs
+*.md
+*.log
+npm-debug.log*
+
+# Ignore OS-specific system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,27 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - product
+      - order
+      - auth
+
+  product:
+    image: php:8.2-apache
+    volumes:
+      - ./product-php:/var/www/html
+    ports:
+      - "8001:80"
+    command: sh -c "echo 'ServerName localhost' >> /etc/apache2/apache2.conf && apache2-foreground"
+
+  order:
+    build: ./order-node
+    ports:
+      - "8002:3000"
+
+  auth:
+    build: ./auth-go
+    ports:
+      - "8003:8080"
