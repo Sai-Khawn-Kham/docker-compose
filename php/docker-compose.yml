@@ -6,3 +6,20 @@ services:
       - ./web:/var/www/html
     ports:
       - "9000:9000"
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_demo
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: demo
+    volumes:
+      - ./backup:/docker-entrypoint-initdb.d
+    ports:
+      - "3307:3306"
